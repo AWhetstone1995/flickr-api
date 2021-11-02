@@ -1,0 +1,10 @@
+<% unless @photos.size.zero? %>
+  <div class="centered">
+  <p>Displaying photos uploaded by user: <%= params[:flickr_id] %> </p>
+  </div>
+  <div class="centered">
+  <% @photos.each do |p| %>
+    <img src="<%= Flickr.url_m(p) %>">
+  <% end %>
+  </div>
+<% end %>

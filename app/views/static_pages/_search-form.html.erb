@@ -1,0 +1,21 @@
+<div class="centered">
+  <%= form_with method: :get do |f| %>
+    <%= f.label :flickr_id, 'Flickr ID' %>
+    <%= f.text_field :flickr_id %>
+    <%= f.submit 'Submit' %>
+  <% end %>
+</div>
+  <% unless params[:flickr_id] %>
+  <div class="centered">
+    <p>
+      <h1>Recently Uploaded Photos</h1>
+    </p>
+  </div>
+  <div class="centered">
+    <p>
+    <% @photos.each do |p| %>
+      <img src="<%= Flickr.url_m(p) %>">
+    <% end %>
+    </p>
+  </div>
+  <% end %>
